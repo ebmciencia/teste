@@ -18,6 +18,8 @@
     "font-awesome": "~4.4.0",
     "ngMask": "angular-mask#~3.0.16",
     "angular-ui-growl": "~0.0.1",
-    "angular-messages": "~1.4.7"
+    "angular-messages": "~1.4.7",
+    "angular-ui-grid": "~3.0.7",
+    "angular-material":"v1.0.0-rc3"
   }
 }

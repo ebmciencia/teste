@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="bower_components/angular-ui-growl/css/growl.css"/>
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-growl/src/growl.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="app/js/index-controller6.js"></script>
+
+
+    <script src="app/js/filters/maiusculo-filter.js"></script>
+    <script src="app/js/service/alert.service.js"></script>
+
+</head>
+<body ng-app="senai">
+<div class="panel panel-primary" ng-controller="IndexController6">
+    <div class="panel-heading">Cadastrar</div>
+    <form id="myForm" name="myForm" novalidate>
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="itNome">Nome</label>
+                <input id="itNome"
+                       type="text"
+                       name="itNome"
+                       ng-model="entidade.itNome"
+                       ng-minlength="3"
+                       ng-maxlength="50"
+                       required
+                       class="form-control"
+                       placeholder="Nome">
+                <div ng-messages="myForm.itNome.$error" ng-show="myForm.itNome.$dirty" class="help-block"
+                     role="alert">
+                    <div ng-messages-include="mensagens.html"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="itNascimento">Nascimento</label>
+                <input id="itNascimento"
+                       type="date"
+                       name="itNascimento"
+                       ng-model="entidade.nascimento"
+                       ng-minlength="3"
+                       ng-maxlength="50"
+                       required
+                       class="form-control"
+                       placeholder="Nascimento">
+                <div ng-messages="myForm.itNascimento.$error" ng-show="myForm.itNascimento.$dirty" class="help-block"
+                     role="alert">
+                    <div ng-messages-include="mensagens.html"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="itEmail">Email</label>
+
+                <input id="itEmail"
+                       type="email"
+                       name="itEmail"
+                       ng-model="entidade.email"
+                       ng-minlength="3"
+                       ng-maxlength="50"
+                       required
+                       class="form-control"
+                       placeholder="Email">
+
+                <div ng-messages="myForm.itEmail.$error" ng-show="myForm.itEmail.$dirty" class="help-block"
+                     role="alert">
+                    <div ng-messages-include="mensagens.html"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Senha</label>
+                <input id="password"
+                       type="password"
+                       name="password"
+                       ng-model="entidade.password"
+                       ng-minlength="3"
+                       ng-maxlength="6"
+                       required class="form-control"
+                       id="exampleInputPassword1"
+                       placeholder="Senha">
+
+                <div ng-messages="myForm.password.$error" ng-show="myForm.password.$dirty" class="help-block"
+                     role="alert">
+                    <div ng-messages-include="mensagens.html"/>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <button type="submit" class="btn btn-primary"
+                    ng-disabled="myForm.$invalid"
+                    ng-click="salvar()">
+                <i class="fa fa-floppy-o"></i>
+                Salvar
+            </button>
+            <button type="submit" class="btn btn-danger"
+                    ng-click="limpar()">
+                <i class="fa fa-times"></i>
+                Limpar
+            </button>
+        </div>
+    </form>
+    <table>
+        <tr>
+            <td>{{dataStr}}</td>
+
+            <td>{{entidade.email | maiusculo}}</td>
+        </tr>
+    </table>
+    <div class="row">
+        <div class="col-sm-12">
+            <div ui-grid="gridOptions"
+            >
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
